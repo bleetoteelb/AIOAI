@@ -1,85 +1,1358 @@
 // Samsung Go Tournament Form C (g++-4.8.3)
-
+//hi
 /*
-[AI ÄÚµå ÀÛ¼º ¹æ¹ı]
-
-1. char info[]ÀÇ ¹è¿­ ¾È¿¡					"TeamName:ÀÚ½ÅÀÇ ÆÀ¸í,Department:ÀÚ½ÅÀÇ ¼Ò¼Ó"					¼ø¼­·Î ÀÛ¼ºÇÕ´Ï´Ù.
-( ÁÖÀÇ ) Teamname:°ú Department:´Â ²À µé¾î°¡¾ß ÇÕ´Ï´Ù.
-"ÀÚ½ÅÀÇ ÆÀ¸í", "ÀÚ½ÅÀÇ ¼Ò¼Ó"À» ¼öÁ¤ÇØ¾ß ÇÕ´Ï´Ù.
-
-2. ¾Æ·¡ÀÇ myturn() ÇÔ¼ö ¾È¿¡ ÀÚ½Å¸¸ÀÇ AI ÄÚµå¸¦ ÀÛ¼ºÇÕ´Ï´Ù.
-
-3. AI ÆÄÀÏÀ» Å×½ºÆ® ÇÏ½Ç ¶§´Â "À°¸ñ ¾Ë°í¸®Áò´ëÈ¸ Åø"À» »ç¿ëÇÕ´Ï´Ù.
-
-4. À°¸ñ ¾Ë°í¸®Áò ´ëÈ¸ ÅøÀÇ ¿¬½ÀÇÏ±â¿¡¼­ ¹ÙµÏµ¹À» ´©¸¥ ÈÄ, ÀÚ½ÅÀÇ "ÆÀ¸í" ÀÌ µé¾î°£ ¾Ë°í¸®ÁòÀ» Ãß°¡ÇÏ¿© Å×½ºÆ® ÇÕ´Ï´Ù.
-
-
-
-[º¯¼ö ¹× ÇÔ¼ö]
-myturn(int cnt) : ÀÚ½ÅÀÇ AI ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ¸ŞÀÎ ÇÔ¼ö ÀÔ´Ï´Ù.
-int cnt (myturn()ÇÔ¼öÀÇ ÆÄ¶ó¹ÌÅÍ) : µ¹À» ¸î ¼ö µÖ¾ßÇÏ´ÂÁö Á¤ÇÏ´Â º¯¼ö, cnt°¡ 1ÀÌ¸é À°¸ñ ½ÃÀÛ ½Ã  ÇÑ ¹ø¸¸  µÎ´Â »óÈ²(ÇÑ ¹ø), cnt°¡ 2ÀÌ¸é ±× ÀÌÈÄ µ¹À» µÎ´Â »óÈ²(µÎ ¹ø)
-int  x[0], y[0] : ÀÚ½ÅÀÌ µÑ Ã¹ ¹ø Â° µ¹ÀÇ xÁÂÇ¥ , yÁÂÇ¥°¡ ÀúÀåµÇ¾î¾ß ÇÕ´Ï´Ù.
-int  x[1], y[1] : ÀÚ½ÅÀÌ µÑ µÎ ¹ø Â° µ¹ÀÇ xÁÂÇ¥ , yÁÂÇ¥°¡ ÀúÀåµÇ¾î¾ß ÇÕ´Ï´Ù.
-void domymove(int x[], int y[], cnt) : µÑ µ¹µéÀÇ ÁÂÇ¥¸¦ ÀúÀåÇØ¼­ Ãâ·Â
-
-
-//int board[BOARD_SIZE][BOARD_SIZE]; ¹ÙµÏÆÇ ÇöÀç»óÈ² ´ã°í ÀÖ¾î ¹Ù·Î»ç¿ë °¡´ÉÇÔ. ´Ü, ¿øº»µ¥ÀÌÅÍ·Î ¼öÁ¤ Àı´ë±İÁö
-// ³õÀ»¼ö ¾ø´Â À§Ä¡¿¡ ¹ÙµÏµ¹À» ³õÀ¸¸é ½Ç°İÆĞ Ã³¸®.
-
-boolean ifFree(int x, int y) : ÇöÀç [x,y]ÁÂÇ¥¿¡ ¹ÙµÏµ¹ÀÌ ÀÖ´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö (¾øÀ¸¸é true, ÀÖÀ¸¸é false)
-int showBoard(int x, int y) : [x, y] ÁÂÇ¥¿¡ ¹«½¼ µ¹ÀÌ Á¸ÀçÇÏ´ÂÁö º¸¿©ÁÖ´Â ÇÔ¼ö (1 = ÀÚ½ÅÀÇ µ¹, 2 = »ó´ëÀÇ µ¹, 3 = ºí·°Å·)
-
-
-<-------AI¸¦ ÀÛ¼ºÇÏ½Ç ¶§, °°Àº ÀÌ¸§ÀÇ ÇÔ¼ö ¹× º¯¼ö »ç¿ëÀ» ±ÇÀåÇÏÁö ¾Ê½À´Ï´Ù----->
+[AI ì½”ë“œ ì‘ì„± ë°©ë²•]
+1. char info[]ì˜ ë°°ì—´ ì•ˆì—					"TeamName:ìì‹ ì˜ íŒ€ëª…,Department:ìì‹ ì˜ ì†Œì†"					ìˆœì„œë¡œ ì‘ì„±í•©ë‹ˆë‹¤.
+( ì£¼ì˜ ) Teamname:ê³¼ Department:ëŠ” ê¼­ ë“¤ì–´ê°€ì•¼ í•©ë‹ˆë‹¤.
+"ìì‹ ì˜ íŒ€ëª…", "ìì‹ ì˜ ì†Œì†"ì„ ìˆ˜ì •í•´ì•¼ í•©ë‹ˆë‹¤.
+2. ì•„ë˜ì˜ myturn() í•¨ìˆ˜ ì•ˆì— ìì‹ ë§Œì˜ AI ì½”ë“œë¥¼ ì‘ì„±í•©ë‹ˆë‹¤.
+3. AI íŒŒì¼ì„ í…ŒìŠ¤íŠ¸ í•˜ì‹¤ ë•ŒëŠ” "ìœ¡ëª© ì•Œê³ ë¦¬ì¦˜ëŒ€íšŒ íˆ´"ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.
+4. ìœ¡ëª© ì•Œê³ ë¦¬ì¦˜ ëŒ€íšŒ íˆ´ì˜ ì—°ìŠµí•˜ê¸°ì—ì„œ ë°”ë‘‘ëŒì„ ëˆ„ë¥¸ í›„, ìì‹ ì˜ "íŒ€ëª…" ì´ ë“¤ì–´ê°„ ì•Œê³ ë¦¬ì¦˜ì„ ì¶”ê°€í•˜ì—¬ í…ŒìŠ¤íŠ¸ í•©ë‹ˆë‹¤.
+[ë³€ìˆ˜ ë° í•¨ìˆ˜]
+myturn(int cnt) : ìì‹ ì˜ AI ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” ë©”ì¸ í•¨ìˆ˜ ì…ë‹ˆë‹¤.
+int cnt (myturn()í•¨ìˆ˜ì˜ íŒŒë¼ë¯¸í„°) : ëŒì„ ëª‡ ìˆ˜ ë‘¬ì•¼í•˜ëŠ”ì§€ ì •í•˜ëŠ” ë³€ìˆ˜, cntê°€ 1ì´ë©´ ìœ¡ëª© ì‹œì‘ ì‹œ  í•œ ë²ˆë§Œ  ë‘ëŠ” ìƒí™©(í•œ ë²ˆ), cntê°€ 2ì´ë©´ ê·¸ ì´í›„ ëŒì„ ë‘ëŠ” ìƒí™©(ë‘ ë²ˆ)
+int  x[0], y[0] : ìì‹ ì´ ë‘˜ ì²« ë²ˆ ì§¸ ëŒì˜ xì¢Œí‘œ , yì¢Œí‘œê°€ ì €ì¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+int  x[1], y[1] : ìì‹ ì´ ë‘˜ ë‘ ë²ˆ ì§¸ ëŒì˜ xì¢Œí‘œ , yì¢Œí‘œê°€ ì €ì¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+void domymove(int x[], int y[], cnt) : ë‘˜ ëŒë“¤ì˜ ì¢Œí‘œë¥¼ ì €ì¥í•´ì„œ ì¶œë ¥
+//int board[BOARD_SIZE][BOARD_SIZE]; ë°”ë‘‘íŒ í˜„ì¬ìƒí™© ë‹´ê³  ìˆì–´ ë°”ë¡œì‚¬ìš© ê°€ëŠ¥í•¨. ë‹¨, ì›ë³¸ë°ì´í„°ë¡œ ìˆ˜ì • ì ˆëŒ€ê¸ˆì§€
+// ë†“ì„ìˆ˜ ì—†ëŠ” ìœ„ì¹˜ì— ë°”ë‘‘ëŒì„ ë†“ìœ¼ë©´ ì‹¤ê²©íŒ¨ ì²˜ë¦¬.
+boolean ifFree(int x, int y) : í˜„ì¬ [x,y]ì¢Œí‘œì— ë°”ë‘‘ëŒì´ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜ (ì—†ìœ¼ë©´ true, ìˆìœ¼ë©´ false)
+int showBoard(int x, int y) : [x, y] ì¢Œí‘œì— ë¬´ìŠ¨ ëŒì´ ì¡´ì¬í•˜ëŠ”ì§€ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜ (1 = ìì‹ ì˜ ëŒ, 2 = ìƒëŒ€ì˜ ëŒ, 3 = ë¸”ëŸ­í‚¹)
+<-------AIë¥¼ ì‘ì„±í•˜ì‹¤ ë•Œ, ê°™ì€ ì´ë¦„ì˜ í•¨ìˆ˜ ë° ë³€ìˆ˜ ì‚¬ìš©ì„ ê¶Œì¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤----->
 */
 
 #include <stdio.h>
-#include <Windows.h>
+//#include "Windows.h"
 #include <time.h>
-#include "Connect6Algo.h"
+//#include "Connect6Algo.h"
 #include <string>
+#include <vector> 
+#include <cstdlib>
 
-#define BOARDSIZE 20
-// "»ùÇÃÄÚµå[C]"  -> ÀÚ½ÅÀÇ ÆÀ¸í (¼öÁ¤)
-// "AIºÎ¼­[C]"  -> ÀÚ½ÅÀÇ ¼Ò¼Ó (¼öÁ¤)
-// Á¦Ãâ½Ã ½ÇÇàÆÄÀÏÀº ¹İµå½Ã ÆÀ¸íÀ¸·Î Á¦Ãâ!
-char info[] = { "TeamName:1234567890,Department:AIºÎ¼­[C]" };
+#define BOARDSIZE 19
+#define BOARDLINE 112
+#define CASESIZE 361
+/**************************************/
+/**************************************/
+/**                                  **/
+/**     structure, class ì„ ì–¸         **/
+/**                                  **/
+/**************************************/
+/**************************************/
+float Infinity = 0.1;
+struct Evaluation{
+	int pattern[9];
+	int pattern_num; // íŒ¨í„´ì˜ ê°œìˆ˜ë¥¼ ì˜ë¯¸í•¨
+	int value; // evaluation scoreì„ ì˜ë¯¸í•¨.
+};
 
-int board2[BOARDSIZE][BOARDSIZE];
+struct Locations{
+	int size;
+	int loc[10][2];
+	Locations() :size(0){}
+	void push(int x, int y){
+		loc[size][0] = x;
+		loc[size][1] = y;
+		size++;
+	}
 
-void myturn(int cnt) {
+	void pop(int a){
+		size -=a;
+	}
+};
 
-	int x[2], y[2];
-	for (int i = 0;i < BOARDSIZE;i++) {
-		for (int j = 0;j < BOARDSIZE;j++) {
-			
-				board2[i][j] = showBoard(i, j);
-				std::string text;
-				text = std::to_string(board2[j][i]);
-				const char* hi1 = text.c_str();
-				char* hi2 = (char*)(hi1);
-				writeLog(hi2);
-			
+struct AlphaNode{
+	Locations locations;
+	float value;
+	AlphaNode() :value(0.1){}
+};
+
+struct Board{
+	int board[BOARDSIZE][BOARDSIZE];
+};
+
+struct Boardline{
+	int size;
+	int boardline[19];
+	Boardline() :size(0){}
+	void push(int a){
+		boardline[size] = a;
+		size++;
+	}
+};
+
+struct Boardlines{
+	int size;
+	Boardline boardlines[BOARDLINE];
+	Boardlines() :size(0){}
+	void push(int a){
+		boardlines[size].push(a);
+	}
+	void size_up(){
+		size++;
+	}
+};
+
+struct sBoard{
+	int shareboard[BOARDSIZE][BOARDSIZE][2];
+	sBoard(){
+		for (int i = 0; i<BOARDSIZE; i++){
+			for (int ii = 0; ii<BOARDSIZE; ii++){
+				shareboard[i][ii][0] = 0;
+				shareboard[i][ii][1] = 0;
+			}
+		}
+	}
+};
+
+struct Cases{
+	int size;
+	int cases[CASESIZE][2];
+	Cases() :size(0){}
+	void push(int x, int y){
+		cases[size][0] = x;
+		cases[size][1] = y;
+		size++;
+	}
+};
+
+struct ARRAY{
+	int size;
+	int array[BOARDSIZE];
+	ARRAY() :size(0){}
+};
+
+struct Rocks{
+	int size;
+	int xy[10][2];
+
+	Rocks() :size(0){}
+	int get_x(int i) { return xy[i][0]; }
+	int get_y(int i) { return xy[i][1]; }
+	int get_cnt() { return size; }
+	bool isEmpty() { return size == 0 ? true : false; }
+	void push(int a, int b) {
+		xy[size][0] = a;
+		xy[size][1] = b;
+		size++;
+	}
+};
+
+
+/**************************************/
+/**************************************/
+/**                                  **/
+/**        í•¨ìˆ˜ë“¤ ë¯¸ë¦¬ ì„ ì–¸           **/
+/**                                  **/
+/**************************************/
+/**************************************/
+bool check_connect7_3(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player);
+bool check_connect7_6(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player);
+bool check_connect7_4h(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player);
+bool check_connect7_1h(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player);
+int win_pattern(int a, int b, int c, int d, int e, int f, int player);
+int dir_num(int dir, int xy);
+Rocks* must_do_a(int x, int y, int pattern, int dir, Rocks* xy);
+Rocks * must_win(Rocks* xy, int player);
+bool isInf(AlphaNode a);
+void getPi(Evaluation line, int* pi);
+Boardlines getBoardline(Board board);
+ARRAY kmp(int s[], Evaluation line, int pi[]);
+Board get_board();
+bool isOut(int a);
+Board remove_block(Board board, int player);
+Board put_rock(Locations locations, int player, Board board);
+Boardlines get_Boardline_around_location(Locations new_locations, Board board);
+Boardlines getBoardline(Board board);
+float evaluate_score(Board board);
+float evaluate_score_BNA(Board board, Locations locations, int player, float pre_totalscore);
+sBoard get_share_board(Board board);
+Cases get_cases(sBoard share_board);
+AlphaNode minimax(Board board, sBoard share_board, float totalscore, int depth, bool isMaximizingPlayer, AlphaNode alpha, AlphaNode beta, AlphaNode alphanode);
+
+
+
+
+/**************************************/
+/**************************************/
+/**                                  **/
+/**          ì „ì—­ í•¨ìˆ˜ ëª¨ì„           **/
+/**                                  **/
+/**************************************/
+/**************************************/
+
+
+
+bool first = true;
+// "ìƒ˜í”Œì½”ë“œ[C]"  -> ìì‹ ì˜ íŒ€ëª… (ìˆ˜ì •)
+// "AIë¶€ì„œ[C]"  -> ìì‹ ì˜ ì†Œì† (ìˆ˜ì •)
+// ì œì¶œì‹œ ì‹¤í–‰íŒŒì¼ì€ ë°˜ë“œì‹œ íŒ€ëª…ìœ¼ë¡œ ì œì¶œ!
+char info[] = { "TeamName:AIOAI,Department:UNIST" };
+int BOARD[BOARDSIZE][BOARDSIZE];
+int DEPTH = 2;
+const Evaluation score[45] = { { { 1, 1, 1, 1, 1, 1, 4, 4, 4 }, 6, 100000000 },
+{ { 0, 1, 1, 1, 1, 0, 4, 4, 4 }, 6, 471125 },
+{ { 0, 1, 0, 1, 1, 1, 0, 1, 0 }, 9, 178408 },
+{ { 0, 1, 0, 1, 1, 1, 0, 0, 1 }, 9, 178408 },
+{ { 1, 0, 0, 1, 1, 1, 0, 1, 0 }, 9, 968445 },
+{ { 1, 0, 0, 1, 1, 1, 0, 0, 1 }, 9, 136975 },
+{ { 0, 0, 1, 1, 1, 1, 0, 0, 4 }, 8, 958631 },
+{ { 1, 1, 1, 1, 1, 0, 4, 4, 4 }, 6, 224804 },
+{ { 0, 1, 1, 1, 1, 1, 4, 4, 4 }, 6, 224804 },
+{ { 1, 0, 1, 1, 1, 1, 4, 4, 4 }, 6, 745729 },
+{ { 1, 1, 1, 1, 0, 1, 4, 4, 4 }, 6, 745729 },
+{ { 1, 1, 0, 1, 1, 1, 4, 4, 4 }, 6, 146434 },
+{ { 1, 1, 1, 0, 1, 1, 4, 4, 4 }, 6, 146434 },
+{ { 1, 0, 0, 1, 1, 1, 1, 4, 4 }, 7, 653420 },
+{ { 1, 1, 1, 1, 0, 0, 1, 4, 4 }, 7, 653420 },
+{ { 1, 1, 0, 0, 1, 1, 1, 4, 4 }, 7, 406632 },
+{ { 1, 1, 1, 0, 0, 1, 1, 4, 4 }, 7, 406632 },
+{ { 1, 0, 1, 0, 1, 1, 1, 4, 4 }, 7, 752847 },
+{ { 1, 1, 1, 0, 1, 0, 1, 4, 4 }, 7, 752847 },
+{ { 1, 1, 0, 1, 1, 0, 1, 4, 4 }, 7, 835834 },
+{ { 1, 0, 1, 1, 0, 1, 1, 4, 4 }, 7, 835834 },
+{ { 1, 0, 1, 1, 1, 0, 1, 4, 4 }, 7, 180915 },
+{ { 1, 1, 0, 1, 0, 1, 1, 4, 4 }, 7, 170667 },
+{ { 1, 1, 1, 1, 0, 0, 4, 4, 4 }, 6, 965425 },
+{ { 0, 0, 1, 1, 1, 1, 4, 4, 4 }, 6, 965425 },
+{ { 1, 1, 1, 0, 0, 1, 4, 4, 4 }, 6, 294247 },
+{ { 1, 0, 0, 1, 1, 1, 4, 4, 4 }, 6, 294247 },
+{ { 1, 1, 0, 0, 1, 1, 4, 4, 4 }, 6, 308961 },
+{ { 1, 0, 1, 0, 1, 1, 4, 4, 4 }, 6, 296802 },
+{ { 1, 1, 0, 1, 0, 1, 4, 4, 4 }, 6, 296802 },
+{ { 1, 0, 1, 1, 0, 1, 4, 4, 4 }, 6, 919855 },
+{ { 0, 0, 1, 1, 1, 0, 0, 0, 4 }, 8, 916206 },
+{ { 0, 0, 0, 1, 1, 1, 0, 0, 4 }, 8, 916206 },
+{ { 0, 0, 1, 1, 0, 1, 0, 0, 4 }, 8, 378982 },
+{ { 0, 0, 1, 0, 1, 1, 0, 0, 4 }, 8, 378982 },
+{ { 0, 0, 0, 0, 1, 1, 0, 1, 0 }, 9, 262479 },
+{ { 0, 1, 0, 1, 1, 0, 0, 0, 0 }, 9, 262479 },
+{ { 0, 0, 0, 0, 1, 1, 0, 0, 1 }, 9, 771643 },
+{ { 1, 0, 0, 1, 1, 0, 0, 0, 0 }, 9, 771643 },
+{ { 0, 0, 0, 1, 1, 0, 0, 1, 0 }, 9, 28720 },
+{ { 0, 1, 0, 0, 1, 1, 0, 0, 0 }, 9, 28720 },
+{ { 0, 0, 0, 1, 1, 0, 0, 1, 0 }, 9, 437413 },
+{ { 0, 1, 0, 1, 0, 1, 0, 0, 0 }, 9, 437413 },
+{ { 1, 1, 1, 0, 0, 0, 4, 4, 4 }, 6, 625778 },
+{ { 0, 0, 0, 1, 1, 1, 4, 4, 4 }, 6, 625778 } };
+
+Evaluation score2[45] = { { { 2, 2, 2, 2, 2, 2, 4, 4, 4 }, 6, 100000000 },
+{ { 0, 2, 2, 2, 2, 0, 4, 4, 4 }, 6, 471125 },
+{ { 0, 2, 0, 2, 2, 2, 0, 2, 0 }, 9, 178408 },
+{ { 0, 2, 0, 2, 2, 2, 0, 0, 2 }, 9, 178408 },
+{ { 2, 0, 0, 2, 2, 2, 0, 2, 0 }, 9, 968445 },
+{ { 2, 0, 0, 2, 2, 2, 0, 0, 2 }, 9, 136975 },
+{ { 0, 0, 2, 2, 2, 2, 0, 0, 4 }, 8, 958631 },
+{ { 2, 2, 2, 2, 2, 0, 4, 4, 4 }, 6, 224804 },
+{ { 0, 2, 2, 2, 2, 2, 4, 4, 4 }, 6, 224804 },
+{ { 2, 0, 2, 2, 2, 2, 4, 4, 4 }, 6, 745729 },
+{ { 2, 2, 2, 2, 0, 2, 4, 4, 4 }, 6, 745729 },
+{ { 2, 2, 0, 2, 2, 2, 4, 4, 4 }, 6, 146434 },
+{ { 2, 2, 2, 0, 2, 2, 4, 4, 4 }, 6, 146434 },
+{ { 2, 0, 0, 2, 2, 2, 2, 4, 4 }, 7, 653420 },
+{ { 2, 2, 2, 2, 0, 0, 2, 4, 4 }, 7, 653420 },
+{ { 2, 2, 0, 0, 2, 2, 2, 4, 4 }, 7, 406632 },
+{ { 2, 2, 2, 0, 0, 2, 2, 4, 4 }, 7, 406632 },
+{ { 2, 0, 2, 0, 2, 2, 2, 4, 4 }, 7, 752847 },
+{ { 2, 2, 2, 0, 2, 0, 2, 4, 4 }, 7, 752847 },
+{ { 2, 2, 0, 2, 2, 0, 2, 4, 4 }, 7, 835834 },
+{ { 2, 0, 2, 2, 0, 2, 2, 4, 4 }, 7, 835834 },
+{ { 2, 0, 2, 2, 2, 0, 2, 4, 4 }, 7, 180915 },
+{ { 2, 2, 0, 2, 0, 2, 2, 4, 4 }, 7, 170667 },
+{ { 2, 2, 2, 2, 0, 0, 4, 4, 4 }, 6, 965425 },
+{ { 0, 0, 2, 2, 2, 2, 4, 4, 4 }, 6, 965425 },
+{ { 2, 2, 2, 0, 0, 2, 4, 4, 4 }, 6, 294247 },
+{ { 2, 0, 0, 2, 2, 2, 4, 4, 4 }, 6, 294247 },
+{ { 2, 2, 0, 0, 2, 2, 4, 4, 4 }, 6, 308961 },
+{ { 2, 0, 2, 0, 2, 2, 4, 4, 4 }, 6, 296802 },
+{ { 2, 2, 0, 2, 0, 2, 4, 4, 4 }, 6, 296802 },
+{ { 2, 0, 2, 2, 0, 2, 4, 4, 4 }, 6, 919855 },
+{ { 0, 0, 2, 2, 2, 0, 0, 0, 4 }, 8, 916206 },
+{ { 0, 0, 0, 2, 2, 2, 0, 0, 4 }, 8, 916206 },
+{ { 0, 0, 2, 2, 0, 2, 0, 0, 4 }, 8, 378982 },
+{ { 0, 0, 2, 0, 2, 2, 0, 0, 4 }, 8, 378982 },
+{ { 0, 0, 0, 0, 2, 2, 0, 2, 0 }, 9, 262479 },
+{ { 0, 2, 0, 2, 2, 0, 0, 0, 0 }, 9, 262479 },
+{ { 0, 0, 0, 0, 2, 2, 0, 0, 2 }, 9, 771643 },
+{ { 2, 0, 0, 2, 2, 0, 0, 0, 0 }, 9, 771643 },
+{ { 0, 0, 0, 2, 2, 0, 0, 2, 0 }, 9, 28720 },
+{ { 0, 2, 0, 0, 2, 2, 0, 0, 0 }, 9, 28720 },
+{ { 0, 0, 0, 2, 2, 0, 0, 2, 0 }, 9, 437413 },
+{ { 0, 2, 0, 2, 0, 2, 0, 0, 0 }, 9, 437413 },
+{ { 2, 2, 2, 0, 0, 0, 4, 4, 4 }, 6, 625778 },
+{ { 0, 0, 0, 2, 2, 2, 4, 4, 4 }, 6, 625778 } };
+
+
+/**************************************/
+/**************************************/
+/**                                  **/
+/**          ì‹¤ì œ í•¨ìˆ˜ ì‹œì‘           **/
+/**                                  **/
+/**************************************/
+/**************************************/
+
+/**************************************/
+/*                                    */
+/*          check_connect7            */
+/*                                    */
+/**************************************/
+// í•¨ìˆ˜ë¥¼ í•˜ë‚˜ë¡œ í•©ì¹˜ê³  ì‹¶ì€ë°..í 
+// ê°€ë¡œë°©í–¥ (3ì‹œë°©í–¥) ì¹ ëª©ì²´í¬
+bool check_connect7_3(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player){
+	if (isOut(x - 1) && modi_board[x + 6][y] != player) return true;
+	else if (isOut(x + 6) && modi_board[x - 1][y] != player)	return true;
+	else if (modi_board[x - 1][y] != player&&modi_board[x + 6][y] != player)	return true;
+	else return false;
+}
+// ì„¸ë¡œë°©í–¥ (6ì‹œë°©í–¥) ì¹ ëª©ì²´í¬
+bool check_connect7_6(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player){
+	if (isOut(x - 1) && modi_board[x][y + 6] != player) return true;
+	else if (isOut(y + 6) && modi_board[x][y - 1] != player)	return true;
+	else if (modi_board[x][y - 1] != player&&modi_board[x][y + 6] != player)	return true;
+	else return false;
+}
+// ìš°í•˜í–¥ë°©í–¥ (4ì‹œë°˜ë°©í–¥) ì¹ ëª©ì²´í¬
+bool check_connect7_4h(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player){
+	if (isOut(x - 1) && isOut(y - 1) && modi_board[x + 6][y + 6] != player) return true;
+	else if (isOut(x + 6) && isOut(y + 6) && modi_board[x - 1][y - 1] != player)	return true;
+	else if (modi_board[x - 1][y - 1] != player&&modi_board[x + 6][y + 6] != player)	return true;
+	else return false;
+}
+// ìš°ìƒí–¥ë°©í–¥ (2ì‹œë°˜ë°©í–¥) ì¹ ëª©ì²´í¬
+bool check_connect7_1h(int modi_board[BOARDSIZE][BOARDSIZE], int x, int y, int player){
+	if (isOut(x - 1) && isOut(y + 1) && modi_board[x + 6][y - 6] != player) return true;
+	else if (isOut(x + 6) && isOut(y - 6) && modi_board[x - 1][y + 1] != player)	return true;
+	else if (modi_board[x - 1][y + 1] != player&&modi_board[x + 6][y - 6] != player)	return true;
+	else return false;
+}
+
+/*
+í•„ìŠ¹ ìˆ˜ ë„˜ë²„ë§
+1:  001111
+2:  010111
+3:  011011
+4:  011101
+5:  011110
+6:  011111
+7:  100111
+8:  101011
+9:  101101
+10: 101110
+11: 101111
+12: 110011
+13: 110101
+14: 110110
+15: 110111
+16: 111001
+17: 111010
+18: 111011
+19: 111100
+20: 111101
+21: 111110
+*/
+
+/**************************************/
+/*                                    */
+/*            win_pattern             */
+/*                                    */
+/**************************************/
+int win_pattern(int a, int b, int c, int d, int e, int f, int player){
+	int candi[6] = { a, b, c, d, e, f };
+	if (candi[0] == 0){
+		if (candi[1] == 0){
+			if (candi[2] == player&&candi[3] == player&&candi[4] == player&&candi[5] == player){
+				return 1;
+			}
+		}
+		else if (candi[1] == player){
+			if (candi[2] == 0 && candi[3] == player&&candi[4] == player&&candi[5] == player){
+				return 2;
+			}
+			else if (candi[2] == player){
+				if (candi[3] == 0 && candi[4] == player&&candi[5] == player){
+					return 3;
+				}
+				else if (candi[3] == player&&candi[4] == 0 && candi[5] == player){
+					return 4;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == 0){
+					return 5;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == player){
+					return 6;
+				}
+			}
+		}
+	}
+	else if (candi[0] == player){
+		if (candi[1] == 0){
+			if (candi[2] == 0 && candi[3] == player&&candi[4] == player&&candi[5] == player){
+				return 7;
+			}
+			else if (candi[2] == player){
+				if (candi[3] == 0 && candi[4] == player&&candi[5] == player){
+					return 8;
+				}
+				else if (candi[3] == player&&candi[4] == 0 && candi[5] == player){
+					return 9;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == 0){
+					return 10;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == player){
+					return 11;
+				}
+			}
+		}
+		else if (candi[1] == player){
+			if (candi[2] == 0){
+				if (candi[3] == 0 && candi[4] == player&&candi[5] == player){
+					return 12;
+				}
+				else if (candi[3] == player&&candi[4] == 0 && candi[5] == player){
+					return 13;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == 0){
+					return 14;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == player){
+					return 15;
+				}
+			}
+			else if (candi[2] == 1){
+				if (candi[3] == 0 && candi[4] == 0 && candi[5] == player){
+					return 16;
+				}
+				else if (candi[3] == 0 && candi[4] == player&&candi[5] == 0){
+					return 17;
+				}
+				else if (candi[3] == 0 && candi[4] == player&&candi[5] == player){
+					return 18;
+				}
+				else if (candi[3] == player&&candi[4] == 0 && candi[5] == 0){
+					return 19;
+				}
+				else if (candi[3] == player&&candi[4] == 0 && candi[5] == player){
+					return 20;
+				}
+				else if (candi[3] == player&&candi[4] == player&&candi[5] == 0){
+					return 21;
+				}
+			}
+		}
+	}
+	return 0;
+}
+
+/**************************************/
+/*                                    */
+/*              dir_num               */
+/*                                    */
+/**************************************/
+// ë°©í–¥ì— ë”°ë¼ì„œ xyì— ë”í•˜ê³  ë¹¼ëŠ” ê°’ì„ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
+// xyì— ë“¤ì–´ê°€ëŠ”ê±´ x:1, y:0
+int dir_num(int dir, int xy){
+	if (xy){
+		switch (dir){
+		case 3: return 1;
+		case 6: return 0;
+		case 4: return 1;
+		case 1: return 1;
+		}
+	}
+	else{
+		switch (dir){
+		case 3: return 0;
+		case 6: return 1;
+		case 4: return -1;
+		case 1: return 1;
+		}
+	}
+}
+
+/**************************************/
+/*                                    */
+/*            must_do_a               */
+/*                                    */
+/**************************************/
+Rocks* must_do_a(int x, int y, int pattern, int dir, Rocks* xy){
+	int cnt = 2;
+	switch (pattern){
+	case 1: // 001111
+		xy->push(x, y); xy->push(x + dir_num(dir, x), y + dir_num(dir, y)); cnt -= 2; break;
+	case 2: // 010111
+		xy->push(x, y); xy->push(x + 2 * dir_num(dir, x), y + 2 * dir_num(dir, y)); cnt -= 2; break;
+	case 3: // 011011
+		xy->push(x, y); xy->push(x + 3 * dir_num(dir, x), y + 3 * dir_num(dir, y)); cnt -= 2; break;
+	case 4: // 011101
+		xy->push(x, y); xy->push(x + 4 * dir_num(dir, x), y + 4 * dir_num(dir, y)); cnt -= 2; break;
+	case 5: // 011110
+		xy->push(x, y); xy->push(x + 5 * dir_num(dir, x), y + 5 * dir_num(dir, y)); cnt -= 2; break;
+	case 6: // 011111
+		xy->push(x, y); cnt -= 1; break;
+	case 7: // 100111
+		xy->push(x + dir_num(dir, x), y + dir_num(dir, y)); xy->push(x + 2 * dir_num(dir, x), y + 2 * dir_num(dir, y)); cnt -= 2; break;
+	case 8: // 101011
+		xy->push(x + dir_num(dir, x), y + dir_num(dir, y)); xy->push(x + 3 * dir_num(dir, x), y + 3 * dir_num(dir, y)); cnt -= 2; break;
+	case 9: // 101101
+		xy->push(x + dir_num(dir, x), y + dir_num(dir, y)); xy->push(x + 4 * dir_num(dir, x), y + 4 * dir_num(dir, y)); cnt -= 2; break;
+	case 10: // 101110
+		xy->push(x + dir_num(dir, x), y + dir_num(dir, y)); xy->push(x + 5 * dir_num(dir, x), y + 5 * dir_num(dir, y)); cnt -= 2; break;
+	case 11: // 101111
+		xy->push(x + dir_num(dir, x), y + dir_num(dir, y)); cnt -= 1; break;
+	case 12: // 110011
+		xy->push(x + 2 * dir_num(dir, x), y + 2 * dir_num(dir, y)); xy->push(x + 3 * dir_num(dir, x), y + 3 * dir_num(dir, y)); cnt -= 2; break;
+	case 13: // 110101
+		xy->push(x + 2 * dir_num(dir, x), y + 2 * dir_num(dir, y)); xy->push(x + 4 * dir_num(dir, x), y + 4 * dir_num(dir, y)); cnt -= 2; break;
+	case 14: // 110110
+		xy->push(x + 2 * dir_num(dir, x), y + 2 * dir_num(dir, y)); xy->push(x + 5 * dir_num(dir, x), y + 5 * dir_num(dir, y)); cnt -= 2; break;
+	case 15: // 110111
+		xy->push(x + 2 * dir_num(dir, x), y + 2 * dir_num(dir, y)); cnt -= 1; break;
+	case 16: // 111001
+		xy->push(x + 3 * dir_num(dir, x), y + 3 * dir_num(dir, y)); xy->push(x + 4 * dir_num(dir, x), y + 4 * dir_num(dir, y)); cnt -= 2; break;
+	case 17: // 111010
+		xy->push(x + 3 * dir_num(dir, x), y + 3 * dir_num(dir, y)); xy->push(x + 5 * dir_num(dir, x), y + 5 * dir_num(dir, y)); cnt -= 2; break;
+	case 18: // 111011
+		xy->push(x + 3 * dir_num(dir, x), y + 3 * dir_num(dir, y)); cnt -= 1; break;
+	case 19: // 111100
+		xy->push(x + 4 * dir_num(dir, x), y + 4 * dir_num(dir, y)); xy->push(x + 5 * dir_num(dir, x), y + 5 * dir_num(dir, y)); cnt -= 2; break;
+	case 20: // 111101
+		xy->push(x + 4 * dir_num(dir, x), y + 4 * dir_num(dir, y)); cnt -= 1; break;
+	case 21: // 111110
+		xy->push(x + 5 * dir_num(dir, x), y + 5 * dir_num(dir, y)); cnt -= 1; break;
+	}
+	return xy;
+}
+
+/**************************************/
+/*                                    */
+/*             must_win               */
+/*                                    */
+/**************************************/
+// í•„ìŠ¹ ìˆ˜ í™•ì¸
+// playerëŠ” 1ì´ ë‚˜ 2ê°€ ìƒëŒ€ë°©
+Rocks * must_win(Rocks* xy, int player){
+	int op = player == 1 ? 2 : 1;
+
+	int modi_board[BOARDSIZE][BOARDSIZE];
+	for (int i = 0; i<BOARDSIZE; i++){
+		for (int j = 0; j<BOARDSIZE; j++){
+			if (BOARD[j][i] == 3)	modi_board[j][i] = player;
+			else modi_board[j][i] = BOARD[j][i];
+		}
+	}
+	int pattern = 0;
+
+	for (int y = 0; y<BOARDSIZE - 5; y++){
+		for (int x = 0; x<BOARDSIZE - 5; x++){
+			if (modi_board[x][y] == op) continue;
+			else{
+				// ìš°
+				if (pattern = win_pattern(modi_board[x][y], modi_board[x + 1][y], modi_board[x + 2][y], modi_board[x + 3][y], modi_board[x + 4][y], modi_board[x + 5][y], player)){
+					if (player == 1){
+						if (check_connect7_3(modi_board, x, y, player)) return must_do_a(x, y, pattern, 3, xy);
+					}
+					else{
+						//must_do_d(x, y, pattern, 3, xy);
+					}
+				}
+				// í•˜
+				else if (pattern = win_pattern(modi_board[x][y], modi_board[x][y + 1], modi_board[x][y + 2], modi_board[x][y + 3], modi_board[x][y + 4], modi_board[x][y + 5], player)){
+					if (player == 1){
+						if (check_connect7_6(modi_board, x, y, player)) return must_do_a(x, y, pattern, 6, xy);
+					}
+					else{
+						//must_do_d(x, y, pattern, 6, xy);
+					}
+				}
+				// ìš°í•˜
+				else if (pattern = win_pattern(modi_board[x][y], modi_board[x + 1][y + 1], modi_board[x + 2][y + 2], modi_board[x + 3][y + 3], modi_board[x + 4][y + 4], modi_board[x + 5][y + 5], player)){
+					if (player == 1){
+						if (check_connect7_4h(modi_board, x, y, player)) return must_do_a(x, y, pattern, 4, xy);
+					}
+					else{
+						//must_do_d(x, y, pattern, 4, xy);
+					}
+				}
+				// ìš°ìƒ
+				else if (pattern = win_pattern(modi_board[x][y], modi_board[x + 1][y - 1], modi_board[x + 2][y - 2], modi_board[x + 3][y - 3], modi_board[x + 4][y - 4], modi_board[x + 5][y - 5], player)){
+					if (player == 1){
+						if (check_connect7_1h(modi_board, x, y, player)) return must_do_a(x, y, pattern, 1, xy);
+					}
+					else{
+						//must_do_d(x, y, pattern, 1, xy);
+					}
+				}
+			}
+		}
+	}
+	return xy;
+}
+
+/**************************************/
+/*                                    */
+/*               isInf                */
+/*                                    */
+/**************************************/
+bool isInf(AlphaNode a){
+	return (a.value == Infinity) ? true : false;
+}
+
+/**************************************/
+/*                                    */
+/*               getPi                */
+/*                                    */
+/**************************************/
+void getPi(Evaluation line, int* pi){
+	int j = 0;
+	int length = (int)(line.pattern_num);
+	for (int i = 1; i< length; i++){
+		while (j > 0 && line.pattern[i] != line.pattern[j]){
+			j = pi[j - 1];
+		}
+		if (line.pattern[i] == line.pattern[j])
+			pi[i] = ++j;
+	}
+	// return pi; 
+}
+
+/**************************************/
+/*                                    */
+/*                kmp                 */
+/*                                    */
+/***************s***********************/
+ARRAY kmp(Boardline s, Evaluation line, int pi[]){   //kmp ì•Œê³ ë¦¬ì¦˜  -> ê¸´ ë‚˜ì—´ì†ì—ì„œ ì£¼ì–´ì§„ íŒ¨í„´ì„ ì°¾ëŠ”ê²ƒ.
+	ARRAY ans;
+	ans.size = 0;
+	if (s.size<line.pattern_num) return ans;
+
+	// pi = getPi(line,pi); 
+	int n = s.size;
+	int m = line.pattern_num;
+	int j = 0;
+	for (int i = 0; i < n; i++){
+		while (j>0 && s.boardline[i] != line.pattern[j])
+			j = pi[j - 1];
+		if (s.boardline[i] == line.pattern[j]){
+			if (j == m - 1){
+				ans.array[ans.size] = (i - m + 1);
+				ans.size++;
+				j = pi[j];
+			}
+			else{
+				j++;
+			}
+		}
+	}
+	return ans;  // ì´ answerì— ëŒ€í•´ì„œëŠ” ë”±íˆ ìœ„ì¹˜ê°€ ì¤‘ìš”í•˜ì§„ ì•Šê¸° ë•Œë¬¸ì— ë³€ìˆ˜íƒ€ì…ì„ ë‚´ê°€ í•„ìš”í•œ ê²ƒë§Œ ë„£ì„ìˆ˜ìˆë„ë¡ ë°”ê¾¸ì–´ ì£¼ì.
+}
+
+/**************************************/
+/*                                    */
+/*             get_board              */
+/*                                    */
+/**************************************/
+Board get_board(){
+	Board board;
+	for (int i = 0; i<BOARDSIZE; i++){ // ë¸”ë¡œí‚¹ ëŒì„ ë‚´ëŒë¡œ ì¸ì‹í•˜ë„ë¡ í•¨.
+		for (int j = 0; j<BOARDSIZE; j++){
+			board.board[j][i] = BOARD[j][i];
+		}
+	}
+	return board;
+}
+
+
+// í•´ë‹¹ ì¢Œí‘œê°€ íŒ ì•ˆì— ìˆëŠ”ì§€ í™•ì¸
+// ë„˜ì–´ê¸°ë©´ trueë°˜í™˜, ì•ˆì— ìˆìœ¼ë©´ false ë°˜í™˜.
+bool isOut(int a){
+	return (a>18 || a<0) ? true : false;
+}
+
+void print_board(){
+	for (int i = 0; i<BOARDSIZE; i++){
+		for (int j = 0; j<BOARDSIZE; j++){
+			std::string text;
+			text = std::to_string(showBoard(j, i));
+			const char* hi1 = text.c_str();
+			char* hi2 = (char*)(hi1);
+			writeLog(hi2);
 		}
 		writeLog("\n");
 	}
-	// ÀÌ ºÎºĞ¿¡¼­ ¾Ë°í¸®Áò ÇÁ·Î±×·¥(AI)À» ÀÛ¼ºÇÏ½Ê½Ã¿À. ±âº» Á¦°øµÈ ÄÚµå¸¦ ¼öÁ¤ ¶Ç´Â »èÁ¦ÇÏ°í º»ÀÎÀÌ ÄÚµå¸¦ »ç¿ëÇÏ½Ã¸é µË´Ï´Ù.
-	// ÇöÀç Sample codeÀÇ AI´Â RandomÀ¸·Î µ¹À» ³õ´Â AlgorithmÀÌ ÀÛ¼ºµÇ¾î ÀÖ½À´Ï´Ù.
+}
 
-	srand((unsigned)time(NULL));
+void print_board(float score){
 
-	for (int i = 0; i < cnt; i++) {
-		do {
-			x[i] = rand() % width;
-			y[i] = rand() % height;
-			if (terminateAI) return;
-		} while (!isFree(x[i], y[i]));
+	std::string text;
+	text = std::to_string(score);
+	const char* hi1 = text.c_str();
+	char* hi2 = (char*)(hi1);
+	writeLog(hi2);
 
-		if (x[1] == x[0] && y[1] == y[0]) i--;
+	writeLog("\n");
+}
+
+/**************************************/
+/*                                    */
+/*           remove_block             */
+/*                                    */
+/**************************************/
+//boardì˜ 3ì„ 1ë¡œ í‘œì‹œ
+Board remove_block(Board board, int player){
+	for (int i = 0; i<BOARDSIZE; i++){ // ë¸”ë¡œí‚¹ ëŒì„ ë‚´ëŒë¡œ ì¸ì‹í•˜ë„ë¡ í•¨.
+		for (int j = 0; j<BOARDSIZE; j++){
+			if (board.board[j][i] == 3){
+				board.board[j][i] = player;
+			}
+		}
+	}
+	return board;
+}
+
+/**************************************/
+/*                                    */
+/*       put_rock - 2D vector         */
+/*                                    */
+/**************************************/
+// ì„ì‹œë¡œ ëŒì„ ë†“ëŠ”ë‹¤. //player : 1ì€ ë‚˜ 2ëŠ” ìƒëŒ€
+Board put_rock(Locations locations, int player, Board board){
+	// x,yìœ„ì¹˜ì— ëŒì„ ë†“ëŠ”ë‹¤.  playerë¡œ ì–´ë–¤ ëŒì„ ë†“ì„ì§€ ê²°ì •í•œë‹¤.
+	//ë†“ìœ¼ë ¤ëŠ” x yìœ„ì¹˜ê°€ freeí•œ ìœ„ì¹˜ì¸ì§€ í™•ì¸í•œë‹¤.
+	for (int i = 0; i<locations.size; i++){
+		if (isFree(locations.loc[i][0], locations.loc[i][1])){
+			board.board[locations.loc[i][0]][locations.loc[i][1]] = player;
+		}
+	}
+	return board;
+}
+
+/**************************************/
+/*                                    */
+/*    get_Boardline_around_location   */
+/*                                    */
+/**************************************/
+//ëŒì„ ë†“ê¸° ì´ì „ì˜ boardlineì„ ë„˜ê²¨ì¤Œ. boardëŠ” ë³´ë“œ íŒì„ ë„˜ê²¨ì£¼ê³ , new_locationì€ ìƒˆë¡œ ë†“ì„ ëŒì„ ë†“ëŠ”ë‹¤. í˜•ì‹ì€ {{x,y},{x,y}} , ìƒˆë¡œ ë„£ì„ ì¢Œí‘œì˜ ê°œìˆ˜ëŠ” ìƒê´€ì—†ìŒ. 
+//put rock í•˜ê¸° ì „ì˜ boardë¥¼ parameterì— ë„£ìœ¼ë©´ ì´ì „íŒì˜ boardlineì„ ë¦¬í„´í•  ê²ƒì´ê³ , put rock í•œ ì´í›„ì˜ boardë¥¼ parameterì— ë„£ìœ¼ë©´ ì´í›„íŒì˜ boardlineì„ returní• ê²ƒì´ë‹¤.
+Boardlines get_Boardline_around_location(Locations new_locations, Board board){
+	Boardlines boardline;
+	print_board((float)new_locations.size);
+	for (int location_num = 0; location_num<new_locations.size; location_num++){
+		print_board((float)location_num);
+		
+		writeLog("aabb1\n");
+		bool InSameLine = false;
+		for (int previous_location_num = 0; previous_location_num<location_num; previous_location_num++){
+			if (new_locations.loc[previous_location_num][0] == new_locations.loc[location_num][0]) InSameLine = true;  // ì„¸ë¡œë¶€ë¶„ì„ ë°œì·Œí• ë•Œ ì´ì „ì— ë°œì·Œí•œ ì„¸ë¡œë¶€ë¶„ê³¼ ë™ì¼í•œ ë¶€ë¶„ì¸ì§€ í™•ì¸ì„ í•œë‹¤.
+			print_board((float)previous_location_num);
+		}
+		writeLog("aabbcc1\n");
+		if (!InSameLine)	{
+			// ì„¸ë¡œë¶€ë¶„ ë°œì·Œ â†“
+			writeLog("aabbcc2\n");
+			for (int i = 0; i<BOARDSIZE; i++){
+				print_board((float)board.board[new_locations.loc[location_num][0]][i]);
+				boardline.push(board.board[new_locations.loc[location_num][0]][i]);
+				print_board((float)boardline.size);
+				writeLog("aabbcc3\n");
+			}
+			print_board((float)boardline.size);
+			boardline.size_up();
+			print_board((float)boardline.size);
+		}
+		writeLog("aabb2\n");
+		InSameLine = false;
+		for (int previous_location_num = 0; previous_location_num<location_num; previous_location_num++){
+			if (new_locations.loc[previous_location_num][1] == new_locations.loc[location_num][1]) InSameLine = true;  // ê°€ë¡œë¶€ë¶„ì„ ë°œì·Œí• ë•Œ ì´ì „ì— ë°œì·Œí•œ ê°€ë¡œë¶€ë¶„ê³¼ ë™ì¼í•œ ë¶€ë¶„ì¸ì§€ í™•ì¸ì„ í•œë‹¤.
+		}
+		if (!InSameLine){
+			//ê°€ë¡œë¶€ë¶„ ë°œì·Œ â†’
+			for (int i = 0; i<BOARDSIZE; i++){
+				boardline.push(board.board[i][new_locations.loc[location_num][1]]);
+			}
+			boardline.size_up();
+		}
+		writeLog("aabb3\n");
+		InSameLine = false;
+		for (int previous_location_num = 0; previous_location_num<location_num; previous_location_num++){
+			if (new_locations.loc[location_num][1] - new_locations.loc[previous_location_num][1] == new_locations.loc[location_num][0] - new_locations.loc[previous_location_num][0]) InSameLine = true;  // â†˜ë¶€ë¶„ì„ ë°œì·Œí• ë•Œ ì´ì „ì— ë°œì·Œí•œ â†˜ë¶€ë¶„ê³¼ ë™ì¼í•œ ë¶€ë¶„ì¸ì§€ í™•ì¸ì„ í•œë‹¤.
+		}
+		if (!InSameLine){
+			int start_x = new_locations.loc[location_num][0], start_y = new_locations.loc[location_num][1], end_x = new_locations.loc[location_num][0], end_y = new_locations.loc[location_num][1];
+			int min = (start_x < start_y) ? start_x : start_y;
+			start_x -= min;		start_y -= min;
+			min = ((BOARDSIZE - end_x) < BOARDSIZE - end_y) ? end_x : end_y;
+			end_x += min;		end_y += min;
+
+			for (int i = start_x, j = start_y; i<end_x, j<end_y; i++, j++){
+				boardline.push(board.board[i][j]);
+			}
+			boardline.size_up();   // â†˜ë¶€ë¶„ì„ ë°œì·Œ
+		}
+		writeLog("aabb4\n");
+		InSameLine = false;
+		for (int previous_location_num = 0; previous_location_num<location_num; previous_location_num++){
+			if (new_locations.loc[location_num][1] - new_locations.loc[previous_location_num][1] == -(new_locations.loc[location_num][0] - new_locations.loc[previous_location_num][0])) InSameLine = true;  // â†—ë¶€ë¶„ì„ ë°œì·Œí• ë•Œ ì´ì „ì— ë°œì·Œí•œ â†—ë¶€ë¶„ê³¼ ë™ì¼í•œ ë¶€ë¶„ì¸ì§€ í™•ì¸ì„ í•œë‹¤.
+		}
+		if (!InSameLine){
+			int start_x = new_locations.loc[location_num][0], start_y = new_locations.loc[location_num][1], end_x = new_locations.loc[location_num][0], end_y = new_locations.loc[location_num][1];
+			int min = (start_x < start_y) ? start_x : start_y;
+			start_x -= min;		start_y += min;
+			min = ((BOARDSIZE - end_x) < BOARDSIZE - end_y) ? end_x : end_y;
+			end_x += min;		end_y -= min;
+
+			for (int i = start_x, j = start_y; i<end_x, j>end_y; i++, j--){
+				boardline.push(board.board[i][j]);
+			}
+			boardline.size_up();   // â†—ë¶€ë¶„ì„ ë°œì·Œ
+		}
+	}writeLog("aabb5\n");
+	return boardline;
+}
+
+/**************************************/
+/*                                    */
+/*            get_Boardline           */
+/*                                    */
+/**************************************/
+// board[x][y] ê¸°ì¤€ìœ¼ë¡œ ì‘ì„±ë¨
+// ì „ì²´ boardlineì„ ë°œì·Œí•¨
+Boardlines getBoardline(Board board){  // ë³´ë“œì— ìˆëŠ” 
+	Boardlines boardline;
+
+	for (int i = 0; i<BOARDSIZE; i++){ //ê°€ë¡œë¶€ë¶„ ë°œì·Œ â†’
+		for (int j = 0; j<BOARDSIZE; j++){
+			boardline.push(board.board[j][i]);
+		}
+		boardline.size_up();
+	}
+	for (int i = 0; i<BOARDSIZE; i++){ //ì„¸ë¡œë¶€ë¶„ ë°œì·Œ â†“
+		for (int j = 0; j<BOARDSIZE; j++){
+			boardline.push(board.board[i][j]);
+		}
+		boardline.size_up();
+	}
+	for (int i = 0; i<BOARDSIZE; i++){ // ëŒ€ê°ì„  ë‚¨ì„œë¶€ë¶„ ë°œì·Œ â†˜
+		for (int j = i, k = 0; j<BOARDSIZE; j++, k++){
+			boardline.push(board.board[k][j]);
+		}
+		boardline.size_up();
+	}
+	for (int i = 0; i<BOARDSIZE; i++){ // ëŒ€ê°ì„  ë‚¨ë™ë¶€ë¶„ ë°œì·Œ â†™
+		std::vector<int> temp;
+		for (int j = i, k = BOARDSIZE - 1; j<BOARDSIZE; j++, k--){
+			boardline.push(board.board[k][j]);
+		}
+		boardline.size_up();
+	}
+	for (int i = 1; i<BOARDSIZE; i++){ // ëŒ€ê°ì„  ë¶ë™ë¶€ë¶„ ë°œì·Œ â†˜
+		std::vector<int> temp;
+		for (int j = 0, k = i; j<BOARDSIZE - i; j++, k++){
+			boardline.push(board.board[k][j]);
+		}
+		boardline.size_up();
+	}
+	for (int i = 0; i<BOARDSIZE - 1; i++){ // ëŒ€ê°ì„  ë¶ì„œë¶€ë¶„ ë°œì·Œ â†—
+		std::vector<int> temp;
+		for (int j = i, k = 0; j >= 0; j--, k++){
+			boardline.push(board.board[k][j]);
+		}
+		boardline.size_up();
+	}
+	return boardline;
+}
+
+/**************************************/
+/*                                    */
+/*           evaluate_score           */
+/*                                    */
+/**************************************/
+float evaluate_score(Board board){   // ì—¬ê¸°ì„œ ë¸”ë¡œí‚¹ ì²˜ë¦¬ê°€ í•„ìš”í•¨.
+	Boardlines boardline;
+	boardline = getBoardline(board);
+	float totalscore = 0;
+	int *pi;
+	for (int a = 0; a<45; a++){
+		int sum = 0;
+		pi = new int[score[a].pattern_num];
+		for (int b = 0; b<score[a].pattern_num; b++){
+			pi[b] = 0;
+		}
+		getPi(score[a], pi);
+		for (int c = 0; c<boardline.size; c++){
+			ARRAY temp = kmp(boardline.boardlines[c], score[a], pi);
+			ARRAY temp2 = kmp(boardline.boardlines[c], score2[a], pi);
+			sum += temp.size;
+			sum -= temp2.size;
+		}
+		totalscore += sum * score[a].value;
+		delete[] pi;
+	}
+	return totalscore;
+}
+
+/**************************************/
+/*                                    */
+/*        evaluate_score_BNA          */
+/*                                    */
+/**************************************/
+float evaluate_score_BNA(Board board, Locations locations, int player, float pre_totalscore){
+	Boardlines boardline_B; // ëŒì„ ë†“ê¸° ì „ ëŒì´ ìˆëŠ” ë¼ì¸ë“¤ì˜ íŒ¨í„´
+	Boardlines boardline_A; // ëŒì„ ë†“ì€ í›„ ëŒì´ ìˆëŠ” ë¼ì¸ë“¤ì˜ íŒ¨í„´
+	Board board_A; // ëŒì„ ë†“ì€ í›„ board
+	float cur_totalscore = pre_totalscore;
+	writeLog("aa\n");
+	boardline_B = get_Boardline_around_location(locations, board);
+	writeLog("aabb\n");
+	board_A = put_rock(locations, player, board);
+	writeLog("bb\n");
+	boardline_A = get_Boardline_around_location(locations, board_A);
+	writeLog("cc\n");
+	int* pi;
+	for (int a = 0; a<45; a++){
+		int sum = 0;
+		pi = new int[score[a].pattern_num];
+		for (int b = 0; b<score[a].pattern_num; b++){
+			pi[b] = 0;
+		}
+		getPi(score[a], pi);
+		for (int c = 0; c<boardline_B.size; c++){
+			ARRAY temp1 = kmp(boardline_B.boardlines[c], score[a], pi); // before_my
+			ARRAY temp2 = kmp(boardline_B.boardlines[c], score[a], pi); // before_op
+			sum -= temp1.size;
+			sum += temp2.size;
+		}
+		for (int c = 0; c<boardline_A.size; c++){
+			ARRAY temp1 = kmp(boardline_A.boardlines[c], score2[a], pi); // after_my
+			ARRAY temp2 = kmp(boardline_A.boardlines[c], score2[a], pi); // after_op
+			sum += temp1.size;
+			sum -= temp2.size;
+		}
+		cur_totalscore += sum * score[a].value;
+		delete[] pi;
+	}
+	writeLog("dd\n");
+	return cur_totalscore;
+}
+
+/**************************************/
+/*                                    */
+/*          get_share_board           */
+/*                                    */
+/**************************************/
+sBoard get_share_board(Board board){   //ë†“ì„ ìˆ˜ ìˆëŠ” ê²½ìš°ì˜ ìˆ˜ë¥¼ ì°¾ì•„ì„œ ë¦¬í„´í•¨.
+	sBoard share_board;
+	for (int player = 1; player <= 2; player++){
+		int other_player;
+		if (player == 1) other_player = 2;
+		else other_player = 1;
+		for (int y = 0; y<BOARDSIZE; y++){
+			for (int x = 0; x<BOARDSIZE; x++){
+				if (board.board[x][y] == player || board.board[x][y] == 3){
+					int start_x, end_x, start_y, end_y;
+					start_x = x - 3;
+					end_x = x + 3;
+					start_y = y - 3;
+					end_y = y + 3;
+					if (isOut(start_x)){
+						start_x = 0;
+					}
+					if (isOut(start_y)){
+						start_y = 0;
+					}
+					if (isOut(end_x)){
+						end_x = BOARDSIZE - 1;
+					}
+					if (isOut(end_y)){
+						end_y = BOARDSIZE - 1;
+					}
+					for (int num = x - 1; num >= start_x; num--){ //ê°€ë¡œ
+						if (board.board[num][y] == other_player) break;
+						if (board.board[num][y] == 0){
+							share_board.shareboard[num][y][player - 1] += 1;
+						}
+					}
+					for (int num = x + 1; num <= end_x; num++){ //ê°€ë¡œ
+						if (board.board[num][y] == other_player) break;
+						if (board.board[num][y] == 0){
+							share_board.shareboard[num][y][player - 1] += 1;
+						}
+					}
+					for (int num = y - 1; num >= start_y; num--){ //ì„¸ë¡œ
+						if (board.board[x][num] == other_player) break;
+						if (board.board[x][num] == 0){
+							share_board.shareboard[x][num][player - 1] += 1;
+						}
+					}
+					for (int num = y + 1; num <= end_y; num++){ //ì„¸ë¡œ
+						if (board.board[x][num] == other_player) break;
+						if (board.board[x][num] == 0){
+							share_board.shareboard[x][num][player - 1] += 1;
+						}
+					}
+					int start_RU_x, start_RU_y, end_RU_x, end_RU_y; // ìš°ìƒí–¥
+					int num_x, num_y;
+					if ((x - start_x) >= (end_y - y)){
+						start_RU_x = x - (end_y - y);
+						start_RU_y = end_y;
+					}
+					else{
+						start_RU_y = y + (x - start_x);
+						start_RU_x = start_x;
+					}
+					if ((end_x - x) >= (y - start_y)){
+						end_RU_x = x + (y - start_y);
+						end_RU_y = start_y;
+					}
+					else{
+						end_RU_y = y - (end_x - x);
+						end_RU_x = end_x;
+					}
+					num_x = x - 1;
+					num_y = y + 1;
+					while (num_x >= start_RU_x&&num_y <= start_RU_y){ // ìš°ìƒí–¥
+						if (board.board[num_x][num_y] == other_player) break;
+						if (board.board[num_x][num_y] == 0){
+							share_board.shareboard[num_x][num_y][player - 1] += 1;
+						}
+						num_x--;
+						num_y++;
+					}
+					num_x = x + 1;
+					num_y = y - 1;
+					while (num_x <= end_RU_x&&num_y >= end_RU_y){ // ìš°ìƒí–¥
+						if (board.board[num_x][num_y] == other_player) break;
+						if (board.board[num_x][num_y] == 0){
+							share_board.shareboard[num_x][num_y][player - 1] += 1;
+						}
+						num_x++;
+						num_y--;
+					}
+					int start_RD_x, start_RD_y, end_RD_x, end_RD_y; //ìš°í•˜í–¥
+					if ((x - start_x) >= (y - start_y)){
+						start_RD_x = x - (y - start_y);
+						start_RD_y = start_y;
+					}
+					else{
+						start_RD_y = y - (x - start_x);
+						start_RD_x = start_x;
+					}
+					if ((end_x - x) >= (end_y - y)){
+						end_RD_x = x + (end_y - y);
+						end_RD_y = end_y;
+					}
+					else{
+						end_RD_y = y + (end_x - x);
+						end_RD_x = end_x;
+					}
+					num_x = x - 1;
+					num_y = y - 1;
+					// cout << start_RD_x << " " << start_RD_y << " " << end_RD_x << " " << end_RD_y << " " << start_RU_x << " " << start_RU_y << " " << end_RU_x << " " << end_RU_y << " " << endl;
+					while (num_x >= start_RD_x&&num_y >= start_RD_y){ // ìš°í•˜í–¥
+						if (board.board[num_x][num_y] == other_player) break;
+						if (board.board[num_x][num_y] == 0){
+							share_board.shareboard[num_x][num_y][player - 1] += 1;
+						}
+						num_x--;
+						num_y--;
+					}
+					num_x = x + 1;
+					num_y = y + 1;
+					while (num_x <= end_RD_x&&num_y <= end_RD_y){ // ìš°í•˜í–¥
+						if (board.board[num_x][num_y] == other_player) break;
+						if (board.board[num_x][num_y] == 0){
+							share_board.shareboard[num_x][num_y][player - 1] += 1;
+						}
+						num_x++;
+						num_y++;
+					}
+				}
+			}
+		}
+	}
+	return share_board;
+}
+
+/**************************************/
+/*                                    */
+/*             get_cases              */
+/*                                    */
+/**************************************/
+Cases get_cases(sBoard share_board){
+	Cases cases;
+	for (int y = 0; y<BOARDSIZE; y++){
+		for (int x = 0; x<BOARDSIZE; x++){
+			if (share_board.shareboard[x][y][0] >= 2 || share_board.shareboard[x][y][1] >= 2){
+				cases.push(x, y);
+			}
+		}
+	}
+	return cases;
+}
+
+Cases get_cases_by_board(Board board){
+	Cases cases;
+	sBoard share_board = get_share_board(board);
+	for (int y = 0; y<BOARDSIZE; y++){
+		for (int x = 0; x<BOARDSIZE; x++){
+			if (share_board.shareboard[x][y][0] >= 2 || share_board.shareboard[x][y][1] >= 2){
+				cases.push(x, y);
+			}
+		}
+	}
+	return cases;
+}
+int count_break1 = 0;
+int count_break2 = 0;
+/**************************************/
+/*                                    */
+/*            minimax_root            */
+/*                                    */
+/**************************************/
+// must_num : 0/1/2 ë¬´ì¡°ê±´ ë‘¬ì•¼ í•˜ëŠ” ëŒì˜ ê°œìˆ˜(pairì˜ ê°¯ìˆ˜ê°€ ì•„ë‹˜)
+AlphaNode minimax_root(Board board, Cases cases, int must_num){
+	AlphaNode a_node;
+	AlphaNode bestVal, alpha, beta, alphanode;
+	alpha.value = -10000000000;
+	beta.value = 10000000000;
+	int depth = 0;
+
+	sBoard share_board = get_share_board(board);
+	float new_totalscore = evaluate_score(board);
+	print_board(new_totalscore);
+	writeLog("1");
+	if (must_num == 0){
+		for (int i = 0; i<cases.size; i++){
+			for (int j = i + 1; j<cases.size; j++){
+				writeLog("4");
+				alphanode.locations.push(cases.cases[i][0], cases.cases[i][1]);
+				alphanode.locations.push(cases.cases[j][0], cases.cases[j][1]);
+
+				a_node = minimax(board, share_board, new_totalscore, depth + 1, false, alpha, beta, alphanode);
+
+				alphanode.locations.pop(2);
+
+				bestVal = (bestVal.value < a_node.value) ? a_node : bestVal;
+				alpha = (bestVal.value < alpha.value) ? alpha : bestVal;
+				if (beta.value <= alpha.value) {
+					count_break1++; break;
+				}
+			}
+			if (beta.value <= alpha.value) break;
+		}
+		writeLog("7");
+	}
+	else if (must_num == 1){
+		writeLog("2");
+	}
+	writeLog("3");
+	return bestVal;
+
+}
+
+int count = 0;
+
+/**************************************/
+/*                                    */
+/*              minimax               */
+/*                                    */
+/**************************************/
+AlphaNode minimax(Board board, sBoard share_board, float totalscore, int depth, bool isMaximizingPlayer, AlphaNode alpha, AlphaNode beta, AlphaNode alphanode){
+	int player = isMaximizingPlayer ? 1 : 2;
+
+	if (depth == DEPTH){
+		Locations locations;
+		locations.push(alphanode.locations.loc[(depth - 1) * 2][0], alphanode.locations.loc[(depth - 1) * 2 ][1]);
+		locations.push(alphanode.locations.loc[(depth - 1) * 2+1][0], alphanode.locations.loc[(depth - 1) * 2 + 1][1]);
+			
+		alphanode.value = evaluate_score_BNA(board, locations, player, totalscore);
+		count++;
+		return alphanode;
 	}
 
-	// ÀÌ ºÎºĞ¿¡¼­ ÀÚ½ÅÀÌ ³õÀ» µ¹À» Ãâ·ÂÇÏ½Ê½Ã¿À.
-	// ÇÊ¼ö ÇÔ¼ö : domymove(x¹è¿­,y¹è¿­,¹è¿­Å©±â)
-	// ¿©±â¼­ ¹è¿­Å©±â(cnt)´Â myturn()ÀÇ ÆÄ¶ó¹ÌÅÍ cnt¸¦ ±×´ë·Î ³Ö¾î¾ßÇÕ´Ï´Ù.
+	if (isMaximizingPlayer){
+		AlphaNode a_node;
+		AlphaNode bestVal;
+		bestVal.value = -10000000000; //ë¬´í•œëŒ€ë¡œ ì´ˆê¸°í™”
+
+		Locations locations;
+		locations.push(alphanode.locations.loc[(depth - 1) * 2][0], alphanode.locations.loc[(depth - 1) * 2][1]);
+		locations.push(alphanode.locations.loc[(depth - 1) * 2 + 1][0], alphanode.locations.loc[(depth - 1) * 2 + 1][1]);
+
+		Board new_board = put_rock(locations, player, board);;
+		sBoard new_share_board = get_share_board(new_board);
+		Cases new_cases = get_cases(new_share_board);
+		float new_totalscore = evaluate_score_BNA(board, locations, player, totalscore);
+
+		for (int i = 0; i<new_cases.size; i++){
+			for (int j = i + 1; j<new_cases.size; j++){
+				alphanode.locations.push(new_cases.cases[i][0], new_cases.cases[i][1]);
+				alphanode.locations.push(new_cases.cases[j][0], new_cases.cases[j][1]);
+				
+				a_node = minimax(new_board, new_share_board, new_totalscore, depth + 1, false, alpha, beta, alphanode);
+
+				alphanode.locations.pop(2);
+
+				bestVal = (bestVal.value <= a_node.value) ? a_node : bestVal;
+				alpha = (bestVal.value <= alpha.value) ? alpha : bestVal;
+				if (beta.value <= alpha.value) {
+					count_break2++; break;
+				}
+			}
+			if (beta.value <= alpha.value) break;
+		}
+
+		return bestVal;
+	}
+	else{
+		AlphaNode a_node;
+		AlphaNode bestVal;
+		bestVal.value = 10000000000;
+
+		Locations locations;
+		locations.push(alphanode.locations.loc[(depth - 1) * 2][0], alphanode.locations.loc[(depth - 1) * 2][1]);
+		locations.push(alphanode.locations.loc[(depth - 1) * 2 + 1][0], alphanode.locations.loc[(depth - 1) * 2 + 1][1]);
+
+		Board new_board = put_rock(locations, player, board);
+		sBoard new_share_board = get_share_board(new_board);
+		Cases new_cases = get_cases(new_share_board);
+		float new_totalscore = evaluate_score_BNA(board, locations, player, totalscore);
+
+		for (int i = 0; i<new_cases.size; i++){
+			for (int j = i + 1; j<new_cases.size; j++){
+				alphanode.locations.push(new_cases.cases[i][0], new_cases.cases[i][1]);
+				alphanode.locations.push(new_cases.cases[j][0], new_cases.cases[j][1]);
+
+				a_node = minimax(new_board, new_share_board, new_totalscore, depth + 1, true, alpha, beta, alphanode);
+
+				alphanode.locations.pop(2);
+
+
+				bestVal = (bestVal.value >= a_node.value) ? a_node : bestVal;
+				beta = (bestVal.value >= beta.value) ? beta : bestVal;
+				if (beta.value <= alpha.value) {
+					count_break2++; break;
+				}
+			}
+			if (beta.value <= alpha.value) break;
+		}
+
+		return bestVal;
+	}
+}
+
+/**************************************/
+/*                                    */
+/*               myturn               */
+/*                                    */
+/**************************************/
+void myturn(int cnt) {
+	int x[2], y[2];
+	int temp = 0, new_cnt = 0, new_x[2] = { 0, 0 }, new_y[2] = { 0, 0 };
+	Rocks * xy = new Rocks;
+	int left_cnt = cnt;
+	if (first){
+		first = false;
+		for (int i = 0; i < BOARDSIZE; i++) {
+			for (int j = 0; j < BOARDSIZE; j++) {
+				BOARD[j][i] = showBoard(j, i);
+			}
+		}
+	}
+	else{
+		for (int i = 0; i < BOARDSIZE; i++) {
+			for (int j = 0; j < BOARDSIZE; j++) {
+
+				temp = showBoard(j, i);
+				if (BOARD[j][i] != temp){
+					new_x[new_cnt] = j;
+					new_y[new_cnt] = i;
+					BOARD[j][i] = temp;
+					new_cnt++;
+				}
+				if (new_cnt >= 2) break;
+			}
+			if (new_cnt >= 2) break;
+		}
+	}
+	// ì´ ë¶€ë¶„ì—ì„œ ì•Œê³ ë¦¬ì¦˜ í”„ë¡œê·¸ë¨(AI)ì„ ì‘ì„±í•˜ì‹­ì‹œì˜¤. ê¸°ë³¸ ì œê³µëœ ì½”ë“œë¥¼ ìˆ˜ì • ë˜ëŠ” ì‚­ì œí•˜ê³  ë³¸ì¸ì´ ì½”ë“œë¥¼ ì‚¬ìš©í•˜ì‹œë©´ ë©ë‹ˆë‹¤.
+	// í˜„ì¬ Sample codeì˜ AIëŠ” Randomìœ¼ë¡œ ëŒì„ ë†“ëŠ” Algorithmì´ ì‘ì„±ë˜ì–´ ìˆìŠµë‹ˆë‹¤.
+	/*
+	for (int i = 0; i < cnt; i++) {
+	do {
+	x[i] = rand() % width;
+	y[i] = rand() % height;
+	if (terminateAI) return;
+	} while (!isFree(x[i], y[i]));
+
+	if (x[1] == x[0] && y[1] == y[0]) i--;
+	}*/
+	
+	xy = must_win(xy, 1);
+	for (int i = 0; i<xy->get_cnt(); i++){
+		writeLog("end\n");
+		x[i] = xy->get_x(i);
+		y[i] = xy->get_y(i);
+	}
+	left_cnt -= xy->get_cnt();
+	print_board((float)left_cnt);
+	
+	if (left_cnt>0){
+		Board board = get_board();
+		Cases cases = get_cases_by_board(board);
+		AlphaNode choice = minimax_root(board, cases, 2-left_cnt);
+		if (choice.locations.size == 0){
+			writeLog("rand\n");
+			for (int i = 0; i < left_cnt; i++) {
+				do {
+					x[i] = rand() % width;
+					y[i] = rand() % height;
+					if (terminateAI) return;
+				} while (!isFree(x[i], y[i]));
+
+				if (x[1] == x[0] && y[1] == y[0]) i--;
+			}
+		}
+		else{
+			writeLog("score\n");
+			for (int i = left_cnt; i<2; i++){
+				x[i] = choice.locations.loc[i][0];
+				y[i] = choice.locations.loc[i][1];
+			}
+		}
+
+	}
+	
+	print_board((float)count);
+	print_board((float)count_break1);
+	print_board((float)count_break2);
+	// ì´ ë¶€ë¶„ì—ì„œ ìì‹ ì´ ë†“ì„ ëŒì„ ì¶œë ¥í•˜ì‹­ì‹œì˜¤.
+	// í•„ìˆ˜ í•¨ìˆ˜ : domymove(xë°°ì—´,yë°°ì—´,ë°°ì—´í¬ê¸°)
+	// ì—¬ê¸°ì„œ ë°°ì—´í¬ê¸°(cnt)ëŠ” myturn()ì˜ íŒŒë¼ë¯¸í„° cntë¥¼ ê·¸ëŒ€ë¡œ ë„£ì–´ì•¼í•©ë‹ˆë‹¤.
 	domymove(x, y, cnt);
+}
+
+
+int main(){
+	srand (time(NULL));
+	clock_t begin, end;
+	begin = clock();
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);cout.tie(0);
+	for(int i=0;i<BOARDSIZE;i++){
+		for(int j=0;j<BOARDSIZE;j++){
+			if(i<13&&j<10&&i>5&&j>5) BOARD[i][j]=rand()%3;
+			else BOARD[i][j] = 0;
+		}
+	}
+	int number = (rand()%5)*2;
+	for(int i=0;i<number;i++){
+		int x = rand()%BOARDSIZE;
+		int y = rand()%BOARDSIZE;
+		BOARD[x][y]=3;
+	}
+
+	cout <<  evaluate_score(board) << endl ;
+	end = clock();
+	cout << "Operation time: " << ((end-begin)/CLOCKS_PER_SEC)<< "\n";
 }
